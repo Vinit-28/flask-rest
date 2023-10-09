@@ -9,8 +9,8 @@ def create():
     try:
         data = json.loads(request.data)
         data_schema = None
-        if 'schema_file' in request.files:
-            file = request.files['file']
+        if 'schema_file' in data:
+            file = data['schema_file']
             data_schema = file.read()
         elif data.get('data_schema'):
             data_schema = json.dumps(data.get('data_schema'))
